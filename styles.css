@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background: #F9EEFF;
+    font-family: "Work Sans", sans-serif;
+}
+
+h1 {
+    color: rgb(48, 21, 52);
+    font-weight: 700;
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 0px;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    position: relative;
+
+    section {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 40vh;
+        background-image: url(./img/background-pattern-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    margin: 1rem;
+    max-width: 400px;
+    z-index: 1;
+    box-shadow: 21px 17px 40px -12px rgba(0,0,0,0.1);
+}
+
+@media (width <= 476px) {
+    .card {
+        padding: 1.5rem;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    .accordion-item:not(:last-child) {
+        padding-bottom: 12px;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .accordion-header {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+        background: transparent;
+        border: 0;
+        width: 100%;
+        p {
+            flex-grow: 1;
+            text-align: left;
+            color: rgb(48, 21, 52);
+            font-size: 16px;
+            font-weight: 700;
+            padding: 12px 0;
+        }
+        span {
+            width: 24px;
+            height: 24px;
+            background: rgb(152, 0, 176);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            font-weight: 400;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        span.show {
+            background: rgb(48, 21, 52);
+        }
+    }
+    .accordion-body {
+        font-size: 14px;
+        color: hsl(292, 16%, 49%);
+        line-height: 1.5;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height .7s ease-in-out;
+    }
+    .accordion-item {
+        max-height: 500px;
+        padding: 1rem;
+    }
+    .accordion-item:hover {
+        background: #fdf7ff;
+    }
+    .accordion-item.show .accordion-body {
+        max-height: 500px;
+        transition: max-height .35s ease-in-out;
+    }
+}
