@@ -62,7 +62,6 @@ main {
     display: flex;
     flex-direction: column;
     .accordion-item:not(:last-child) {
-        padding-bottom: 12px;
         border-bottom: 1px solid #f5f5f5;
     }
     .accordion-header {
@@ -107,17 +106,22 @@ main {
         line-height: 1.5;
         overflow: hidden;
         max-height: 0;
-        transition: max-height .7s ease-in-out;
+        transition: max-height .5s ease-in-out;
     }
     .accordion-item {
         max-height: 500px;
-        padding: 1rem;
+        button {
+            padding: .5rem 1rem;
+        }
     }
     .accordion-item:hover {
         background: #fdf7ff;
     }
     .accordion-item.show .accordion-body {
         max-height: 500px;
-        transition: max-height .35s ease-in-out;
+        transition: max-height .5s ease-in-out;
+    }
+    .accordion-item .accordion-body p {
+        padding: 0 1.5rem 1rem 1.5rem;
     }
 }
